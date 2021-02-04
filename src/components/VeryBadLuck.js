@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 
-const GoodLuck = ({match, history}) => {
+const VeryBadLuck = ({match, history}) => {
     const handleClick = () => {
         history.push('/');
     };
@@ -10,7 +10,7 @@ const GoodLuck = ({match, history}) => {
     return (
         <div>
             <div>
-                중길입니다!
+                대흉입니다!
             </div>
 
             <button onClick={handleClick}>돌아가기</button>
@@ -19,4 +19,4 @@ const GoodLuck = ({match, history}) => {
     );
 }
 
-export default withRouter(GoodLuck);
+export default withRouter(VeryBadLuck);

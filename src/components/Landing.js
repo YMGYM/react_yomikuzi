@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import './Landing.css'
+import {withRouter} from 'react-router-dom';
 
-const Landing = ({Kuji,setKuji}) => {
+
+const Landing = ({Kuji,setKuji, history}) => {
     const [Click, setClick] = useState(false);
     
     
@@ -30,6 +32,32 @@ const Landing = ({Kuji,setKuji}) => {
     setClick(true);
     };
 
+    const handleKujiClick = () => {
+        let kujiSet = null;
+
+        switch(Kuji){
+            case '대길이에욤':
+                kujiSet = '/verygood';
+                break;
+            case '중길이에욤':
+                kujiSet = '/good';
+                break;
+            case '말길이에욤':
+                kujiSet = '/soso';
+                break;
+            case '흉이에욤':
+                kujiSet = '/bad';
+                break;
+            case '대흉이에욤':
+                kujiSet = '/verybad';
+                break;
+        }
+
+        history.push(kujiSet);
+
+    };
+
+
     return (
     <div>
         <h1 style={{textAlign: "center"}}>Happy "YOMI KUZI"</h1>
@@ -42,7 +70,7 @@ const Landing = ({Kuji,setKuji}) => {
         {
         Click ? (
         <div style={{marginTop: "5vh", marginLeft: "10vw", marginRight: "10vw", textAlign: "center"}}>
-            <div className="paperIn">
+            <div className="paperIn" onClick={handleKujiClick}>
             <div className="paper">
                 <p>{Kuji}</p>
             </div>
@@ -54,4 +82,4 @@ const Landing = ({Kuji,setKuji}) => {
     );
 }
 
-export default Landing;
+export default withRouter(Landing);
