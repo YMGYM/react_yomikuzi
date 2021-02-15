@@ -6,12 +6,14 @@ import GoodLuck from './components/GoodLuck';
 import SosoLuck from './components/SosoLuck';
 import BadLuck from './components/BadLuck';
 import VeryBadLuck from './components/VeryBadLuck';
+import Musubi from './components/Musubi';
+
 
 
 
 const App = () => {
   const [Kuji, setKuji] = useState("");
-
+  const [Kujies, setKujies] = useState([])
   return (
     <div>
         {/* <Landing Kuji={Kuji} setKuji={setKuji}/> */}
@@ -36,7 +38,9 @@ const App = () => {
         <Route path='/veryBad'
         render = {({match}) => <VeryBadLuck match={match} />} /> 
       
-        
+        <Route path='/musubi'
+        render = {({match}) => <Musubi match={match} Kujies={Kujies} setKujies={setKujies} />} />
+
     </div>
 
   );
